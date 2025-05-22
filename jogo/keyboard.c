@@ -11,8 +11,7 @@
 #include "keyboard.h"
 
 static struct termios initialSettings, newSettings;
-static int peekCharacter = -1; // Inicializado com -1 para corrigir o problema
-
+static int peekCharacter = -1; 
 
 void keyboardInit()
 {
