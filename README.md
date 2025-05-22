@@ -4,5 +4,5 @@ Sou aluno do 2º período do curso de Ciências da Computação na CESAR School 
 # Participante
 - **Guilherme Cireno Baltar** - gcb@cesar.school
 # Apresentação
-[SPACE INVADERS.pdf] (https://gcbgoat.github.io/space_invaders_presentation_green.html)
+[SPACE INVADERS.pdf] (https://gcbgoat.github.io/Space-Invaders/)
  
