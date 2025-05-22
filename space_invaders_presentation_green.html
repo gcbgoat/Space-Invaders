@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders - Apresentação</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .slide {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            background-color: #4ecca3;
+            color: #000000;
+        }
+        .slide-content {
+            max-width: 900px;
+            width: 100%;
+            z-index: 2;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.2em;
+            color: #000000;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            color: #000000;
+            text-align: center;
+        }
+        h3 {
+            font-size: 1.8em;
+            margin-bottom: 0.3em;
+            color: #000000;
+        }
+        p {
+            font-size: 1.5em;
+            line-height: 1.5;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+        ul {
+            font-size: 1.3em;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 80%;
+            line-height: 1.6;
+        }
+        .code {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: left;
+            margin: 20px auto;
+            max-width: 80%;
+            overflow-x: auto;
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+        .code .keyword {
+            color: #ff79c6;
+        }
+        .code .function {
+            color: #50fa7b;
+        }
+        .code .string {
+            color: #f1fa8c;
+        }
+        .code .comment {
+            color: #6272a4;
+        }
+        .code .variable {
+            color: #8be9fd;
+        }
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+        .controls button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .slide-number {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1em;
+            color: #000000;
+        }
+        .two-column {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .column {
+            width: 48%;
+        }
+        .space-ship {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+        .alien {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .leaf-decoration {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 Q30,10 50,50 Q70,10 90,50 Q70,90 50,50 Q30,90 10,50" fill="none" stroke="rgba(0,100,0,0.2)" stroke-width="5"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+            opacity: 0.5;
+        }
+        .top-right {
+            top: 0;
+            right: 0;
+            transform: rotate(45deg);
+        }
+        .top-left {
+            top: 0;
+            left: 0;
+            transform: rotate(-45deg);
+        }
+        .bottom-right {
+            bottom: 0;
+            right: 0;
+            transform: rotate(135deg);
+        }
+        .bottom-left {
+            bottom: 0;
+            left: 0;
+            transform: rotate(-135deg);
+        }
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            margin: 10px 0;
+        }
+        .character {
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+            width: 150px;
+            height: 150px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button onclick="prevSlide()">Anterior</button>
+        <button onclick="nextSlide()">Próximo</button>
+    </div>
+
+    <!-- Slide 1: Título -->
+    <div class="slide" id="slide1">
+        <div class="leaf-decoration top-right"></div>
+        <div class="leaf-decoration top-left"></div>
+        <div class="leaf-decoration bottom-right"></div>
+        <div class="leaf-decoration bottom-left"></div>
+        <div class="slide-content">
+            <div class="space-ship">🚀</div>
+            <h1>SPACE INVADERS</h1>
+            <p>Guilherme Cireno Baltar - gcb@cesar.school</p>
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='20' width='60' height='60' fill='none' stroke='black' stroke-width='2'/><circle cx='50' cy='40' r='10' fill='black'/><rect x='40' y='55' width='20' height='15' fill='black'/><line x1='30' y1='70' x2='70' y2='70' stroke='black' stroke-width='2'/></svg>" class="character" alt="Space Invader">
+        </div>
+        <div class="slide-number">1/7</div>
+    </div>
+
+    <!-- Slide 2: Introdução -->
+    <div class="slide" id="slide2" style="display: none;">
+        <div class="leaf-decoration top-right"></div>
+        <div class="leaf-decoration top-left"></div>
+        <div class="leaf-decoration bottom-right"></div>
+        <div class="leaf-decoration bottom-left"></div>
+        <div class="slide-content">
+            <p>O Space Invaders, ou "jogo de invasão espacial", é um jogo que ficou muito famoso na década de 70. O jogo consiste em controlar a "nave" para destruir os invasores alienígenas, e, quanto mais alienígenas forem destruídos, maior será a pontuação. À medida que o jogo avança, mais difícil ficará. Caso a nave seja atingida pelos invasores ou eles alcancem a parte inferior da tela, o usuário perderá e terá a opção de jogar novamente.</p>
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='20' width='60' height='60' fill='none' stroke='black' stroke-width='2'/><circle cx='50' cy='40' r='10' fill='black'/><rect x='40' y='55' width='20' height='15' fill='black'/><line x1='30' y1='70' x2='70' y2='70' stroke='black' stroke-width='2'/></svg>" class="character" alt="Space Invader">
+        </div>
+        <div class="slide-number">2/7</div>
+    </div>
+
+    <!-- Slide 3: Funções do Código e Jogo -->
+    <div class="slide" id="slide3" style="display: none;">
+        <div class="leaf-decoration top-right"></div>
+        <div class="leaf-decoration top-left"></div>
+        <div class="leaf-decoration bottom-right"></div>
+        <div class="leaf-decoration bottom-left"></div>
+        <div class="slide-content">
+            <div class="two-column">
+                <div class="column">
+                    <h2>Funções do código:</h2>
+                    <ul>
+                        <li>inicializarJogo()</li>
+                        <li>desenharJogo()</li>
+                        <li>moverTiros()</li>
+                        <li>moverInvasores()</li>
+                        <li>verificarColisoes()</li>
+                        <li>gravarPontuacao()</li>
+                        <li>mostrarRanking()</li>
+                        <li>configuracoes()</li>
+                        <li>menu()</li>
+                        <li>main()</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h2>Funções do jogo:</h2>
+                    <p>Em meu jogo, possuo sistema de ranking de jogadores, posso alterar a cor da nave, cor dos invasores, o caracter que vai ser utilizado para representar a nave, etc.</p>
+                </div>
+            </div>
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='20' width='60' height='60' fill='none' stroke='black' stroke-width='2'/><circle cx='50' cy='40' r='10' fill='black'/><rect x='40' y='55' width='20' height='15' fill='black'/><line x1='30' y1='70' x2='70' y2='70' stroke='black' stroke-width='2'/></svg>" class="character" alt="Space Invader">
+        </div>
+        <div class="slide-number">3/7</div>
+    </div>
+
+    <!-- Slide 4: Dificuldades Encontradas -->
+    <div class="slide" id="slide4" style="display: none;">
+        <div class="leaf-decoration top-right"></div>
+        <div class="leaf-decoration top-left"></div>
+        <div class="leaf-decoration bottom-right"></div>
+        <div class="leaf-decoration bottom-left"></div>
+        <div class="slide-content">
+            <h2>DIFICULDADES ENCONTRADAS:</h2>
+            <p>Encontrei dificuldade em desenvolver algumas lógicas do meu jogo, como a lógica de gerenciamento de memória para as listas encadeadas de tiros e invasores. Além disso, demorei um pouco para encontrar solução para ajustar a lógica da colisão da nave com os invasores e dos tiros com os invasores.</p>
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='20' width='60' height='60' fill='none' stroke='black' stroke-width='2'/><circle cx='50' cy='40' r='10' fill='black'/><rect x='40' y='55' width='20' height='15' fill='black'/><line x1='30' y1='70' x2='70' y2='70' stroke='black' stroke-width='2'/></svg>" class="character" alt="Space Invader">
+        </div>
+        <div class="slide-number">4/7</div>
+    </div>
+
+    <!-- Slide 5: Highlights do Código -->
+    <div class="slide" id="slide5" style="display: none;">
+        <div class="leaf-decoration top-right"></div>
+        <div class="leaf-decoration top-left"></div>
+        <div class="leaf-decoration bottom-right"></div>
+        <div class="leaf-decoration bottom-left"></div>
+        <div class="slide-content">
+            <h2>Highlights do código:</h2>
+            <div class="two-column">
+                <div class="column">
+                    <div class="code">
+<span class="keyword">void</span> <span class="function">verificarColisoes</span>() {<br>
+&nbsp;&nbsp;<span class="variable">Tiro</span> *t = tiros;<br>
+&nbsp;&nbsp;<span class="keyword">while</span> (t) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">Invasor</span> *i = invasores;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> (i) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (t->x == i->x && t->y == i->y) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Remover invasor e tiro</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pontos++;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = i->prox;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;t = t->prox;<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="code">
+<span class="keyword">void</span> <span class="function">desenharJogo</span>(<span class="variable">Serpente</span> *serpente, <span class="variable">Alimento</span> *alimento) {<br>
+&nbsp;&nbsp;screenInit(1);<br>
+&nbsp;&nbsp;printf(<span class="string">"Pontuação: %d"</span>, pontos);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<span class="variable">Nodo</span> *nodo = serpente->inicio;<br>
+&nbsp;&nbsp;<span class="keyword">while</span> (nodo != NULL) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screenGotoxy(nodo->posX, nodo->posY);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;printf(<span class="string">"%c%c%c"</span>, corSerpente, charSerpente, RESET);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nodo = nodo->prox;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;screenUpdate();<br>
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">5/7</div>
+    </div>
+
+    <!-- Slide 6: Mais Highlights do Código -->
+    <div class="slide" id="slide6" style="display: none;">
+        <div class="leaf-decoration top-right"></div>
+        <div class="leaf-decoration top-left"></div>
+        <div class="leaf-decoration bottom-right"></div>
+        <div class="leaf-decoration bottom-left"></div>
+        <div class="slide-content">
+            <h2>Highlights do código:</h2>
+            <div class="two-column">
+                <div class="column">
+                    <div class="code">
+<span class="keyword">void</span> <span class="function">exibirRanking</span>() {<br>
+&nbsp;&nbsp;screenInit(1);<br>
+&nbsp;&nbsp;<span class="variable">FILE</span> *fp = fopen(<span class="string">"ranking.txt"</span>, <span class="string">"r"</span>);<br>
+&nbsp;&nbsp;<span class="variable">char</span> linha[100];<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<span class="keyword">if</span> (fp != NULL) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;printf(<span class="string">"\nRanking:\n\n"</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> (fgets(linha, <span class="keyword">sizeof</span>(linha), fp)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<span class="string">"%s"</span>, linha);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fclose(fp);<br>
+&nbsp;&nbsp;} <span class="keyword">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;printf(<span class="string">"Ranking vazio.\n"</span>);<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="code">
+<span class="keyword">typedef struct</span> {<br>
+&nbsp;&nbsp;<span class="keyword">int</span> x, y;<br>
+} <span class="variable">Nave</span>;<br>
+<br>
+<span class="keyword">typedef struct</span> <span class="variable">Tiro</span> {<br>
+&nbsp;&nbsp;<span class="keyword">int</span> x, y;<br>
+&nbsp;&nbsp;<span class="keyword">struct</span> <span class="variable">Tiro</span> *prox;<br>
+} <span class="variable">Tiro</span>;<br>
+<br>
+<span class="keyword">typedef struct</span> <span class="variable">Invasor</span> {<br>
+&nbsp;&nbsp;<span class="keyword">int</span> x, y;<br>
+&nbsp;&nbsp;<span class="keyword">struct</span> <span class="variable">Invasor</span> *prox;<br>
+} <span class="variable">Invasor</span>;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">6/7</div>
+    </div>
+
+    <!-- Slide 7: Instruções de Uso e Compilação -->
+    <div class="slide" id="slide7" style="display: none;">
+        <div class="leaf-decoration top-right"></div>
+        <div class="leaf-decoration top-left"></div>
+        <div class="leaf-decoration bottom-right"></div>
+        <div class="leaf-decoration bottom-left"></div>
+        <div class="slide-content">
+            <h2>Instruções de uso e compilação:</h2>
+            <p>Para abrir o meu Space Invaders primeiro instale os pacotes Make e gcc:</p>
+            <div class="code">
+sudo apt install make<br>
+sudo apt install gcc
+            </div>
+            <p>Tenha as bibliotecas:</p>
+            <div class="code">
+#include &lt;stdlib.h&gt;<br>
+#include &lt;stdbool.h&gt;<br>
+#include &lt;stdio.h&gt;<br>
+#include &lt;unistd.h&gt;<br>
+#include &lt;time.h&gt;<br>
+#include &lt;string.h&gt;
+            </div>
+            <p>Use os comandos para rodar o jogo:</p>
+            <div class="code">
+make<br>
+./space_invaders
+            </div>
+        </div>
+        <div class="slide-number">7/7</div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+
+        function showSlide(slideNumber) {
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById(`slide${i}`).style.display = 'none';
+            }
+            document.getElementById(`slide${slideNumber}`).style.display = 'flex';
+            currentSlide = slideNumber;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>
