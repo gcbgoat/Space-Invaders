@@ -16,7 +16,7 @@
 
 #define MAX_TIROS 50
 
-// Cores
+
 #define RESET "\x1b[0m"
 #define VERDE "\x1b[32m"
 #define VERMELHO "\x1b[31m"
@@ -27,7 +27,7 @@ const char *corNave = VERDE;
 const char *corInvasor = VERMELHO;
 const char *corTiro = AMARELO;
 
-int velocidade = 100;  // Em milissegundos
+int velocidade = 100;  
 
 typedef struct {
     int x, y;
@@ -55,7 +55,7 @@ bool jogoPerdido = false;
 char nomeJogador[50];
 
 void adicionarTiro(int x, int y) {
-    // Contar tiros existentes
+    
     int numTiros = 0;
     Tiro *t = tiros;
     while (t) {
@@ -63,7 +63,7 @@ void adicionarTiro(int x, int y) {
         t = t->prox;
     }
     
-    // Limitar número de tiros
+    
     if (numTiros < MAX_TIROS) {
         Tiro *novo = malloc(sizeof(Tiro));
         if (novo) {
@@ -145,14 +145,14 @@ void moverInvasores() {
             jogoRodando = false;
         }
         
-        // Limpar lista de invasores
+        
         while (invasores) {
             Invasor *tmp = invasores;
             invasores = invasores->prox;
             free(tmp);
         }
         
-        // Recriar invasores
+        
         if (vidas > 0) {
             for (int i = 10; i < MAXX - 10; i += 5) {
                 for (int j = 2; j < 6; j += 2) {
@@ -174,12 +174,12 @@ void verificarColisoes() {
         
         while (i) {
             if (t->x == i->x && t->y == i->y) {
-                // Remover o invasor
+                
                 if (anteriorI) anteriorI->prox = i->prox;
                 else invasores = i->prox;
                 free(i);
                 
-                // Remover o tiro
+                
                 Tiro *proximoT = t->prox;
                 removerTiro(&anteriorT, &t);
                 t = proximoT;
@@ -197,7 +197,7 @@ void verificarColisoes() {
             t = t->prox;
         }
         
-        // Verificar se todos os invasores foram eliminados
+        
         if (invasores == NULL) {
             jogoRodando = false;
             screenInit(0);
@@ -254,10 +254,10 @@ void loopJogo() {
             desenharJogo();
         }
         
-        // Usar nanosleep em vez de usleep para maior portabilidade
+        
         struct timespec ts;
         ts.tv_sec = 0;
-        ts.tv_nsec = 10000000; // 10 milissegundos em nanossegundos
+        ts.tv_nsec = 10000000; 
         nanosleep(&ts, NULL);
     }
 }
